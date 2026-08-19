@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>.1DevProject</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #10161f;
+    --bg-panel: #161d29;
+    --steel: #6f92ad;
+    --bronze: #b3854e;
+    --bronze-bright: #d9a869;
+    --ink: #e7ecf2;
+    --ink-dim: #8b98a8;
+    --line: #26303e;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+
+  /* background circuitry */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(111,146,173,0.07), transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(179,133,78,0.07), transparent 40%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 24px; position:relative; z-index:1; }
+
+  /* ---------- header / nav ---------- */
+  header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:28px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand img{ width:34px; height:34px; border-radius:8px; display:block; }
+  .brand span{
+    font-family:'JetBrains Mono', monospace;
+    font-size:15px;
+    letter-spacing:0.02em;
+    color:var(--ink);
+  }
+  .brand span b{ color:var(--bronze-bright); font-weight:500; }
+
+  nav{ display:flex; gap:28px; }
+  nav a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--ink-dim);
+    letter-spacing:0.03em;
+    transition:color 0.2s ease;
+  }
+  nav a:hover{ color:var(--steel); }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    margin:56px 0 88px;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .hero img{
+    width:100%;
+    display:block;
+    max-height:420px;
+    object-fit:cover;
+    filter:saturate(0.92);
+  }
+  .hero-overlay{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(16,22,31,0) 40%, rgba(16,22,31,0.94) 96%);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:32px;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--bronze-bright);
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .hero-overlay h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(28px, 4vw, 40px);
+    font-weight:600;
+    color:var(--ink);
+    max-width:560px;
+  }
+  .hero-overlay p{
+    margin-top:10px;
+    color:var(--ink-dim);
+    font-size:15px;
+    max-width:480px;
+  }
+
+  /* ---------- section shared ---------- */
+  section{ margin:72px 0; }
+  .label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--steel);
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:20px;
+  }
+  .label::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:26px;
+    margin-bottom:14px;
+  }
+
+  .about p{ color:var(--ink-dim); max-width:640px; font-size:15px; }
+  .about p + p{ margin-top:12px; }
+
+  /* ---------- gears row (signature motif) ---------- */
+  .gear-row{
+    display:flex; align-items:center; gap:18px;
+    margin-top:28px;
+    color:var(--ink-dim);
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+  }
+  .gear{
+    width:20px; height:20px;
+    animation:spin 12s linear infinite;
+    flex-shrink:0;
+  }
+  .gear.slow{ animation-duration:20s; animation-direction:reverse; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  /* ---------- projects ---------- */
+  .project-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:26px;
+    display:flex; flex-direction:column; gap:8px;
+    transition:border-color 0.2s ease, transform 0.2s ease;
+  }
+  .project-card:hover{ border-color:var(--bronze); transform:translateY(-2px); }
+  .project-top{
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .project-name{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:18px;
+  }
+  .project-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--bronze-bright);
+    border:1px solid var(--bronze);
+    padding:3px 9px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .project-desc{ color:var(--ink-dim); font-size:14px; max-width:560px; }
+  .project-stack{
+    margin-top:6px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--steel);
+  }
+
+  /* ---------- contact ---------- */
+  .contact-grid{
+    display:flex; flex-wrap:wrap; gap:14px;
+  }
+  .contact-link{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    padding:12px 18px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    color:var(--ink);
+    transition:border-color 0.2s ease, color 0.2s ease;
+  }
+  .contact-link:hover{ border-color:var(--steel); color:var(--steel); }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:26px 0 50px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--ink-dim);
+    display:flex; justify-content:space-between;
+    flex-wrap:wrap; gap:10px;
+  }
+
+  @media (max-width:600px){
+    header{ flex-direction:column; align-items:flex-start; gap:14px; }
+    .hero-overlay{ padding:22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <img src="assets/icon.png" alt=".1DevProject icon">
+      <span><b>.1Dev</b>Project</span>
+    </div>
+    <nav>
+      <a href="#about">about</a>
+      <a href="#work">work</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <img src="assets/header.jpg" alt=".1DevProject banner">
+    <div class="hero-overlay">
+      <div class="eyebrow">Solo developer</div>
+      <p>I design and ship focused apps end to end — from the first commit to the thing running quietly in someone's daily routine.</p>
+    </div>
+  </div>
+
+  <section class="about" id="about">
+    <div class="label">About</div>
+    <h2>How I work</h2>
+    <p>I'm .1DevProject — a one-person shop. No hand-offs, no committee: every project here was scoped, built, and shipped by a single set of hands.</p>
+    <p>I like tools that do one job well. Automations that run in the background, apps that turn a fiddly manual task into something that just works, interfaces that stay out of the way.</p>
+  </section>
+
+  <section id="work">
+    <div class="label">Selected work</div>
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-name">Remindr</div>
+        <div class="project-tag">android</div>
+      </div>
+      <p class="project-desc">A day-to-day utility app that replaces a handful of separate apps with one. World clock, to-dos, calendar, alarms, and a timer for keeping track of time — plus quick-notes, a calculator, and currency conversion for everything else that comes up in between.</p>
+      <div class="project-stack">World clock &middot; To-dos &middot; Calendar &middot; Alarm &middot; Timer &middot; Quick-notes &middot; Calculator &middot; Currency</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="label">Contact</div>
+    <h2>Let's talk</h2>
+    <div class="contact-grid">
+      <a class="contact-link" href="https://github.com/">github.com/1devproject</a>
+      <a class="contact-link" href="mailto:hello@1devproject.dev">hello@1devproject.dev</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>.1DevProject &copy; 2026</span>
+    <span>built solo, shipped solo</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
