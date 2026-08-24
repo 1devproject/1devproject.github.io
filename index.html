@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>.1DevProject.</title>
+<title>.1DevProject</title>
 <link rel="icon" href="assets/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -171,6 +171,7 @@
     padding:26px;
     display:flex; flex-direction:column; gap:8px;
     transition:border-color 0.2s ease, transform 0.2s ease;
+    cursor:pointer;
   }
   .project-card:hover{ border-color:var(--bronze); transform:translateY(-2px); }
   .project-top{
@@ -235,8 +236,8 @@
 
   <header>
     <div class="brand">
-      <img src="assets/icon.png" alt="1DevProject icon">
-      <span><b>1Dev</b>Project</span>
+      <img src="assets/icon.png" alt=".1DevProject icon">
+      <span><b>.1Dev</b>Project</span>
     </div>
     <nav>
       <a href="#about">about</a>
@@ -246,7 +247,7 @@
   </header>
 
   <div class="hero">
-    <img src="assets/header.jpg" alt="1DevProject banner">
+    <img src="assets/header.jpg" alt=".1DevProject banner">
     <div class="hero-overlay">
       <div class="eyebrow">Solo developer</div>
       <p>I design and ship focused apps end to end — from the first commit to the thing running quietly in someone's daily routine.</p>
@@ -255,21 +256,21 @@
 
   <section class="about" id="about">
     <div class="label">About</div>
-    <h2>How I projects</h2>
-    <p>I'm 1DevProject — a one-person shop. No hand-offs, no committee: every project here was scoped, built, and shipped by a single set of hands.</p>
-    <p>I like tools that do one job well. Automations that run in the background, apps that turn a fiddly manual task into something that just projectss, interfaces that stay out of the way.</p>
+    <h2>How I work</h2>
+    <p>I'm .1DevProject — a one-person shop. No hand-offs, no committee: every project here was scoped, built, and shipped by a single set of hands.</p>
+    <p>I like tools that do one job well. Automations that run in the background, apps that turn a fiddly manual task into something that just works, interfaces that stay out of the way.</p>
   </section>
 
   <section id="projects">
     <div class="label">Projects</div>
-    <div class="project-card">
+    <a class="project-card" href="https://1devproject.github.io/Remindr" target="_blank" rel="noopener">
       <div class="project-top">
         <div class="project-name">Remindr</div>
         <div class="project-tag">android</div>
       </div>
       <p class="project-desc">A day-to-day utility app that replaces a handful of separate apps with one. World clock, to-dos, calendar, alarms, and a timer for keeping track of time — plus quick-notes, a calculator, and currency conversion for everything else that comes up in between.</p>
       <div class="project-stack">World clock &middot; To-dos &middot; Calendar &middot; Alarm &middot; Timer &middot; Quick-notes &middot; Calculator &middot; Currency</div>
-    </div>
+    </a>
   </section>
 
   <section id="contact">
@@ -277,12 +278,12 @@
     <h2>Let's talk</h2>
     <div class="contact-grid">
       <a class="contact-link" href="https://github.com/">github.com/1devproject</a>
-      <a class="contact-link" href="mailto:hello@1devproject.dev">1devproject.oe@gmail.com</a>
+      <a class="contact-link" href="mailto:hello@1devproject.dev">hello@1devproject.dev</a>
     </div>
   </section>
 
   <footer>
-    <span>1DevProject &copy; 2026</span>
+    <span>.1DevProject &copy; 2026</span>
     <span>built solo, shipped solo</span>
   </footer>
 
