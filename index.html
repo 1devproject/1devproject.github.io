@@ -174,17 +174,7 @@
   }
   .project-card:hover{ border-color:var(--bronze); }
 
-  .project-links{
-    display:flex; gap:16px;
-    margin-top:12px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:13px;
-  }
-  .project-links a{
-    color:var(--steel);
-    transition:color 0.2s ease;
-  }
-  .project-links a:hover{ color:var(--bronze-bright); }
+
   .project-top{
     display:flex; align-items:center; justify-content:space-between;
   }
@@ -192,6 +182,10 @@
     font-family:'Space Grotesk', sans-serif;
     font-weight:600;
     font-size:18px;
+  }
+  .project-name .bang{
+    color:#e04b4b;
+    transition:color 0.6s ease;
   }
   .project-tag{
     font-family:'JetBrains Mono', monospace;
@@ -276,15 +270,11 @@
     <div class="label">Projects</div>
     <div class="project-card">
       <div class="project-top">
-        <div class="project-name">Remindr</div>
+        <div class="project-name">Remindr<span class="bang">!</span></div>
         <div class="project-tag">android</div>
       </div>
       <p class="project-desc">A day-to-day utility app that replaces a handful of separate apps with one. World clock, to-dos, calendar, alarms, and a timer for keeping track of time — plus quick-notes, a calculator, and currency conversion for everything else that comes up in between.</p>
       <div class="project-stack">World clock &middot; To-dos &middot; Calendar &middot; Alarm &middot; Timer &middot; Quick-notes &middot; Calculator &middot; Currency</div>
-      <div class="project-links">
-        <a href="https://github.com/1devproject/Remindr" target="_blank" rel="noopener">Repo &rarr;</a>
-        <a href="https://1devproject.github.io/Remindr" target="_blank" rel="noopener">Live &rarr;</a>
-      </div>
     </div>
   </section>
 
@@ -292,17 +282,29 @@
     <div class="label">Contact</div>
     <h2>Let's talk</h2>
     <div class="contact-grid">
-      <a class="contact-link" href="https://github.com/">github.com/1devproject</a>
       <a class="contact-link" href="mailto:1devproject.oe@gmail.com">1devproject.oe@gmail.com</a>
     </div>
   </section>
 
   <footer>
-    <span>1DevProject &copy; 2026</span>
+    <span>&copy; 2026 1DevProject</span>
     <span>built solo, shipped solo</span>
   </footer>
 
 </div>
 
+<script>
+  (function(){
+    var colors = ['#e04b4b', '#4bbf6b', '#4b7fe0', '#d9a84b', '#a34be0', '#e04ba0'];
+    var bang = document.querySelector('.bang');
+    if(!bang) return;
+    var i = 0;
+    bang.style.color = colors[i];
+    setInterval(function(){
+      i = (i + 1) % colors.length;
+      bang.style.color = colors[i];
+    }, 15000);
+  })();
+</script>
 </body>
 </html>
