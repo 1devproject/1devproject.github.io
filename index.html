@@ -170,10 +170,21 @@
     border-radius:14px;
     padding:26px;
     display:flex; flex-direction:column; gap:8px;
-    transition:border-color 0.2s ease, transform 0.2s ease;
-    cursor:pointer;
+    transition:border-color 0.2s ease;
   }
-  .project-card:hover{ border-color:var(--bronze); transform:translateY(-2px); }
+  .project-card:hover{ border-color:var(--bronze); }
+
+  .project-links{
+    display:flex; gap:16px;
+    margin-top:12px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+  }
+  .project-links a{
+    color:var(--steel);
+    transition:color 0.2s ease;
+  }
+  .project-links a:hover{ color:var(--bronze-bright); }
   .project-top{
     display:flex; align-items:center; justify-content:space-between;
   }
@@ -263,14 +274,18 @@
 
   <section id="projects">
     <div class="label">Projects</div>
-    <a class="project-card" href="https://1devproject.github.io/Remindr" target="_blank" rel="noopener">
+    <div class="project-card">
       <div class="project-top">
         <div class="project-name">Remindr</div>
         <div class="project-tag">android</div>
       </div>
       <p class="project-desc">A day-to-day utility app that replaces a handful of separate apps with one. World clock, to-dos, calendar, alarms, and a timer for keeping track of time — plus quick-notes, a calculator, and currency conversion for everything else that comes up in between.</p>
       <div class="project-stack">World clock &middot; To-dos &middot; Calendar &middot; Alarm &middot; Timer &middot; Quick-notes &middot; Calculator &middot; Currency</div>
-    </a>
+      <div class="project-links">
+        <a href="https://github.com/1devproject/Remindr" target="_blank" rel="noopener">Repo &rarr;</a>
+        <a href="https://1devproject.github.io/Remindr" target="_blank" rel="noopener">Live &rarr;</a>
+      </div>
+    </div>
   </section>
 
   <section id="contact">
