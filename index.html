@@ -196,6 +196,17 @@
     border-radius:999px;
     white-space:nowrap;
   }
+  .play-badge{
+    flex-shrink:0;
+    line-height:0;
+    transition:opacity 0.2s ease;
+  }
+  .play-badge:hover{ opacity:0.85; }
+  .play-badge img{
+    height:36px;
+    width:auto;
+    display:block;
+  }
   .project-desc{ color:var(--ink-dim); font-size:14px; max-width:560px; }
   .project-stack{
     margin-top:6px;
@@ -271,10 +282,12 @@
     <div class="project-card">
       <div class="project-top">
         <div class="project-name">Remindr<span class="bang">!</span></div>
-        <div class="project-tag">android</div>
+        <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.onedevproject.remindr" target="_blank" rel="noopener">
+          <img src="assets/google-play.png" alt="Get it on Google Play">
+        </a>
       </div>
-      <p class="project-desc">A day-to-day utility app that replaces a handful of separate apps with one. World clock, to-dos, calendar, alarms, and a timer for keeping track of time — plus quick-notes, a calculator, and currency conversion for everything else that comes up in between.</p>
-      <div class="project-stack">World clock &middot; To-dos &middot; Calendar &middot; Alarm &middot; Timer &middot; Quick-notes &middot; Calculator &middot; Currency</div>
+      <p class="project-desc">A lightweight, privacy-focused daily productivity hub. Alarms, to-dos, calendar, and quick notes to keep the day on track, plus Dropbox cloud sync or local backup, a currency converter, and world clocks — all running on 100% local storage with zero developer servers.</p>
+      <div class="project-stack">Alarms &amp; Timers &middot; Stopwatch &middot; To-Dos &middot; Calendar &middot; Quick Notes &middot; Dropbox Sync &middot; Currency Converter &middot; World Clock</div>
     </div>
   </section>
 
@@ -303,7 +316,7 @@
     setInterval(function(){
       i = (i + 1) % colors.length;
       bang.style.color = colors[i];
-    }, 15000);
+    }, 60000);
   })();
 </script>
 </body>
