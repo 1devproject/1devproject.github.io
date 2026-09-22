@@ -172,6 +172,7 @@
     display:flex; flex-direction:column; gap:8px;
     transition:border-color 0.2s ease;
   }
+  .project-card + .project-card{ margin-top:18px; }
   .project-card:hover{ border-color:var(--bronze); }
 
 
@@ -182,6 +183,15 @@
     font-family:'Space Grotesk', sans-serif;
     font-weight:600;
     font-size:18px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .project-icon{
+    width:28px;
+    height:28px;
+    border-radius:7px;
+    display:block;
   }
   .project-name .bang{
     color:#e04b4b;
@@ -281,13 +291,30 @@
     <div class="label">Projects</div>
     <div class="project-card">
       <div class="project-top">
-        <div class="project-name">Remindr<span class="bang">!</span></div>
+        <div class="project-name">
+          <img class="project-icon" src="assets/remindr-icon.png" alt="Remindr! icon">
+          Remindr<span class="bang">!</span>
+        </div>
         <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.onedevproject.remindr" target="_blank" rel="noopener">
           <img src="assets/google-play.png" alt="Get it on Google Play">
         </a>
       </div>
       <p class="project-desc">A lightweight, privacy-focused daily productivity hub. Alarms, to-dos, calendar, and quick notes to keep the day on track, plus Dropbox cloud sync or local backup, a currency converter, and world clocks — all running on 100% local storage with zero developer servers.</p>
       <div class="project-stack">Alarms &amp; Timers &middot; Stopwatch &middot; To-Dos &middot; Calendar &middot; Quick Notes &middot; Dropbox Sync &middot; Currency Converter &middot; World Clock</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-name">
+          <img class="project-icon" src="assets/aoshi-icon.png" alt="Aoshi Media Player icon">
+          Aoshi Media Player
+        </div>
+        <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.teamconcha.aoshimediaplayer" target="_blank" rel="noopener">
+          <img src="assets/google-play.png" alt="Get it on Google Play">
+        </a>
+      </div>
+      <p class="project-desc">An all-in-one local audio &amp; video player and media organizer. Edit ID3 tags and artwork, rename and clean up files, and manage storage directly in the app — with background playback, instant resume, and a lyrics viewer, all built local-first with no cloud dependency.</p>
+      <div class="project-stack">ID3 &amp; Metadata Editor &middot; File Renaming &middot; Audio &amp; Video Playback &middot; Lyrics Viewer &middot; Background Playback &middot; Light &amp; Dark Mode</div>
     </div>
   </section>
 
